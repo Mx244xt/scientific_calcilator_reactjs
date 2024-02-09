@@ -9,7 +9,7 @@ export const fnSplitOperator = (val: any, stack: any) => {
 
   for (let op in operateTable) {
     let piv = val.indexOf(op);
-    if (piv != -1) {
+    if (piv !== -1) {
       fnSplitOperator(val.substring(0, piv), stack);
       fnSplitOperator(val.substring(piv, piv + op.length), stack);
       fnSplitOperator(val.substring(piv + op.length), stack);
@@ -40,7 +40,7 @@ const rpnCalculation = (rpn: string) => {
       switch (elem.type) {
         case "num":
           calc_stack.push(
-            elem.value.indexOf("0x") != -1 ? parseInt(elem.value, 16) : parseFloat(elem.value)
+            elem.value.indexOf("0x") !== -1 ? parseInt(elem.value, 16) : parseFloat(elem.value)
           );
           break;
 
