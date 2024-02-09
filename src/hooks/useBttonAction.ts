@@ -36,21 +36,22 @@ const useBttonAction = () => {
         break;
       case "=":
         try {
-          if (calcTexts != null) {
-            const rpn = reversePolishNotaion(calcTexts.slice(-1)[0])
-            if (typeof (rpn) === "string") {
-              const result = rpnCalculation(rpn);
-              if (typeof (result) === "number") {
-                setDisplaytexts([...displaytexts, "=" + result.toString(), ""]);
-                setCalcTexts([...calcTexts, "=" + result.toString(), ""]);
-                setAns(result.toString());
-                return;
-              }
+          console.log(calcTexts);
+          if (calcTexts[calcTexts.length - 1] === "") return setDisplaytexts([...displaytexts, "=0", ""]);
+          const rpn = reversePolishNotaion(calcTexts.slice(-1)[0]);
+          if (typeof (rpn) === "string") {
+            const result = rpnCalculation(rpn);
+            if (typeof (result) === "number") {
+              setDisplaytexts([...displaytexts, "=" + result.toString(), ""]);
+              setCalcTexts([...calcTexts, "=" + result.toString(), ""]);
+              setAns(result.toString());
+              return;
             }
           }
+
+          setDisplaytexts([...displaytexts, "=Calcilation error", ""]);
         } catch (error) {
           console.error(error);
-          setDisplaytexts([...displaytexts, "=Calcilation error", ""]);
         }
         break;
       default:

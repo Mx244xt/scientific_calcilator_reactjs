@@ -92,7 +92,7 @@ const reversePolishNotaion = (formula: string) => {
       }
     }
 
-    if (operator_depth > 0) {
+    if (operator_depth > 1) {
       console.warn({ message: `「(」と「)」の数字が一致していません。(The numbers of "(" and ")" do not match.)`, rest_exp: formula });
       throw new Error(`「(」と「)」の数字が一致していません。(The numbers of "(" and ")" do not match.)`)
     } else if (formula.length > 0) {
@@ -107,13 +107,9 @@ const reversePolishNotaion = (formula: string) => {
       }
       return result.join(" ");
     }
-
-    return null;
-
   } catch (error) {
     console.error(error);
-    console.log(typeof (Error("Calculation error")))
-    return "Calculation error";
+    return;
   }
 };
 

@@ -74,13 +74,12 @@ const rpnCalculation = (rpn: string) => {
     if (rpn_stack.length > 0 || calc_stack.length !== 1) {
       console.warn({ message: "calculate unfinished", rest_rpn: rpn_stack, result_value: calc_stack });
       throw new Error("calculate unfinished");
-      return null;
     }
     const result: number = calc_stack[0]
     return Number(result.toPrecision(12));
   } catch (error) {
     console.error(error);
-    return "Calculation error";
+    return;
   }
 };
 
