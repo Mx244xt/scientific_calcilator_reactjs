@@ -19,8 +19,8 @@ const operateTable: OperateKeyType = {
   },
   //正割
   'asin': {
-    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return Math.asin(L / R) * (180 / Math.PI); }
+    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
+    fn: (L: number) => { return Math.asin(L) * (180 / Math.PI); }
   },
   //余弦
   'cos': {
@@ -29,8 +29,8 @@ const operateTable: OperateKeyType = {
   },
   //余割
   'acos': {
-    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return Math.acos(L / R) * (180 / Math.PI); }
+    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
+    fn: (L: number) => { return Math.acos(L) * (180 / Math.PI); }
   },
   //正接
   'tan': {
@@ -39,8 +39,8 @@ const operateTable: OperateKeyType = {
   },
   //余接
   'atan': {
-    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return Math.atan(L / R) * (180 / Math.PI); }
+    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
+    fn: (L: number) => { return Math.atan(L) * (180 / Math.PI); }
   },
   //対数
   'log': {
