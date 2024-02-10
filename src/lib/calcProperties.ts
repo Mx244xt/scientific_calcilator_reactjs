@@ -1,5 +1,6 @@
 const calcProperties = () => {
   const subButtonObj = [
+    // S 1列目
     [
       {
         buttonText: {
@@ -73,6 +74,7 @@ const calcProperties = () => {
         fontColor: "text-white",
       },
     ],
+    // S 2列目
     [
       {
         buttonText: {
@@ -86,6 +88,7 @@ const calcProperties = () => {
           topLeftText: "DEC",
         },
         calcText: {
+          mainText: "↑↑",
         },
       },
       {
@@ -141,6 +144,7 @@ const calcProperties = () => {
         },
       },
     ],
+    // S 3列目
     [
       {
         buttonText: {
@@ -149,7 +153,7 @@ const calcProperties = () => {
         },
         displayText: {
           mainText: "sin(",
-          topLeftText: "acos("
+          topLeftText: "asin("
         },
         calcText: {
           mainText: "sin(",
@@ -213,6 +217,7 @@ const calcProperties = () => {
         },
       }
     ],
+    // S 4列目
     [
       {
         buttonText: {
@@ -224,8 +229,8 @@ const calcProperties = () => {
           topLeftText: "^(-1)"
         },
         calcText: {
-          mainText: "** 2",
-          topLeftText: "** _1"
+          mainText: "^ 2",
+          topLeftText: "^ -1"
         },
       },
       {
@@ -238,7 +243,7 @@ const calcProperties = () => {
           topLeftText: "×√("
         },
         calcText: {
-          mainText: "**(",
+          mainText: "^(",
           topLeftText: "*√("
         },
       },
@@ -288,6 +293,7 @@ const calcProperties = () => {
   ];
 
   const mainButtonObj = [
+    // M 1列目
     [
       {
         buttonText: {
@@ -335,11 +341,11 @@ const calcProperties = () => {
         },
         displayText: {
           mainText: "(",
-          topText: "Pol",
+          topText: "Pol(",
         },
         calcText: {
           mainText: "(",
-          //TODO topText: "Pol",
+          topText: "pol(",
         },
       },
       {
@@ -349,16 +355,17 @@ const calcProperties = () => {
           bottomText: "",
         },
         displayText: {
-          topText: "Rec",
+          topText: "Rec(",
           mainText: ")",
           bottomText: "",
         },
         calcText: {
-          //TODO topText: "Rec",
+          topText: "rec(",
           mainText: ")",
         },
       },
     ],
+    // M 2列目
     [
       {
         buttonText: {
@@ -409,11 +416,11 @@ const calcProperties = () => {
         },
         displayText: {
           mainText: "×",
-          topText: "nPr",
+          topText: "P",
         },
         calcText: {
           mainText: "*",
-          //TODO TODO topText: "nPr",
+          topText: "nPr",
         },
       },
       {
@@ -423,14 +430,15 @@ const calcProperties = () => {
         },
         displayText: {
           mainText: "÷",
-          topText: "nCr",
+          topText: "C",
         },
         calcText: {
           mainText: "/",
-          //TODO topText: "nCr",
+          topText: "nCr",
         },
       },
     ],
+    // M 3列目
     [
       {
         buttonText: {
@@ -509,6 +517,7 @@ const calcProperties = () => {
         },
       },
     ],
+    // M 4列目
     [
       {
         buttonText: {
@@ -540,15 +549,15 @@ const calcProperties = () => {
       },
       {
         buttonText: {
-          mainText: "Exp",
+          mainText: ",",
           bottomText: "MR",
         },
         displayText: {
-          mainText: "Exp",
+          mainText: ",",
           bottomText: "MR",
         },
         calcText: {
-          //TODO mainText: "Exp",
+          mainText: ",",
           //TODO bottomText: "MR",
         },
         fontSize: "text-xl",
