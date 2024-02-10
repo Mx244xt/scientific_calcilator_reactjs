@@ -182,7 +182,7 @@ export const cosDegCV = (e: number) => {
 
 export const polarCoordinates = (x: number, y: number) => {
   const r = Math.sqrt(x ** 2 + y ** 2);
-  const θ = Math.sign(y) * Math.acos(x / Math.sqrt((x ** 2) + (y ** 2))) * (180 / Math.PI);
+  // const θ = Math.sign(y) * Math.acos(x / Math.sqrt((x ** 2) + (y ** 2))) * (180 / Math.PI);
   return r;
   /** 直交座標 → 極座標への変換   
    r = √(x^2 + y^2)
@@ -192,7 +192,7 @@ export const polarCoordinates = (x: number, y: number) => {
 
 export const cartesian = (r: number, θ: number) => {
   const x = Math.round(r * cosDegCV(θ));
-  const y = Math.round(r * Math.sin(θ * (Math.PI / 180)));
+  // const y = Math.round(r * Math.sin(θ * (Math.PI / 180)));
   return x;
   /** 極座標 → 直交座標 への変換
    x = r cos θ

@@ -1,5 +1,5 @@
 import reversePolishNotaion from "../lib/reversePolishNotaion";
-import rpnCalculation from "../lib/rpnCalculation";
+
 describe("逆ポーランド記法変換", () => {
   test("コンソールログ", () => {
 
