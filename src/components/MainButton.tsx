@@ -13,7 +13,7 @@ const MainButton = ({ setState, isAlt, buttonText, displayText, calcText, fontSi
         displayText.topText &&
         setState(displayText.topText, calcText.topText)
       }>
-      <p className={`absolute top-0 right-1 text-orange-500 text-xs ${!calcText.topText && "opacity-25"}`}>{displayText.topText}</p>
+      <p className={`absolute top-0 right-1 text-orange-500 text-xs ${!calcText.topText && "opacity-25"}`}>{buttonText.topText}</p>
       <div className='flex justify-center items-center'>
         <p className={`text-white ${fontSize ? fontSize : 'text-2xl'} font-medium ${!calcText.mainText && "opacity-25"}`}>{buttonText.mainText}</p>
       </div>
