@@ -40,12 +40,17 @@ const useBttonAction = () => {
         );
         break;
       case "DEL":
-        setDisplaytexts(
-          displaytexts.filter((_, i, _array) => (i !== _array.length - 1))
-        );
-        setCalcTexts(
-          displaytexts.filter((_, i, _array) => (i !== _array.length - 1))
-        );
+        if (displaytexts.length - 1 > 0) {
+          setDisplaytexts(
+            displaytexts.filter((_, i, _array) => (i !== _array.length - 1))
+          );
+          setCalcTexts(
+            displaytexts.filter((_, i, _array) => (i !== _array.length - 1))
+          );
+        } else {
+          setDisplaytexts([[]]);
+          setCalcTexts([[]]);
+        }
         break;
       case "Ans":
         if (ans !== undefined) {
