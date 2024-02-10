@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 type Props = {
-  displayText: string[];
+  displayText: string[][];
 }
 
 const Disply = ({ displayText }: Props) => {
@@ -13,12 +13,17 @@ const Disply = ({ displayText }: Props) => {
   }, [displayText]);
   return (
     <div className="w-full h-40 p-3 bg-lime-100 rounded-xl overflow-auto">
-      {displayText.map((item, i) => {
+      {displayText.map((items, i) => {
         return (
-          <div key={i} ref={scrollBottomRef}>
-            <p className="text-3xl">{item}</p>
-          </div>
-        )
+          <div key={i} className="flex flex-wrap">
+            {items.map((item, j) => {
+              return (
+                <div key={j} ref={scrollBottomRef} className="">
+                  <p className="text-3xl break-all">{item}</p>
+                </div>
+              )
+            })}
+          </div>)
       })}
     </div>
   )
