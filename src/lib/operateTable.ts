@@ -12,30 +12,50 @@ const operateTable: OperateKeyType = {
     Priority: 19, Type: "state", Arity: 0, Associative_law: "",
     fn: () => { }
   },
+  //加算
+  '+': {
+    Priority: 12, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return L + R; }
+  },
+  //減算
+  '-': {
+    Priority: 12, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return L - R; }
+  },
+  //乗算
+  '*': {
+    Priority: 13, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return L * R; }
+  },
+  //除算
+  '/': {
+    Priority: 13, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return L / R; }
+  },
   //正弦
   'sin': {
     Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
     fn: (L: number) => { return Math.sin(L * (Math.PI / 180)); }
-  },
-  //正割
-  'asin': {
-    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
-    fn: (L: number) => { return Math.asin(L) * (180 / Math.PI); }
   },
   //余弦
   'cos': {
     Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
     fn: (L: number) => { return cosDegCV(L); }
   },
-  //余割
-  'acos': {
-    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
-    fn: (L: number) => { return Math.acos(L) * (180 / Math.PI); }
-  },
   //正接
   'tan': {
     Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
     fn: (L: number) => { return Math.tan(L * (Math.PI / 180)); }
+  },
+  //正割
+  'asin': {
+    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
+    fn: (L: number) => { return Math.asin(L) * (180 / Math.PI); }
+  },
+  //余割
+  'acos': {
+    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
+    fn: (L: number) => { return Math.acos(L) * (180 / Math.PI); }
   },
   //余接
   'atan': {
@@ -57,29 +77,15 @@ const operateTable: OperateKeyType = {
     Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
     fn: (L: number) => { return Math.log(L); }
   },
-  //平方根
-  '√': {
-    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
-    fn: (L: number) => { return Math.sqrt(L); }
-  },
-  //3の平方根
-  '3√': {
-    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
-    fn: (R: number) => { return Math.cbrt(R); }
-  },
-  //pi
-  'π': {
-    Priority: 18, Type: "op", Arity: 0, Associative_law: "",
-    fn: () => { return Math.PI; }
-  },
   //階乗
   '!': {
     Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
     fn: (L: number) => { return factorial(L); }
   },
-  'pol': {
-    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return; }
+  //平方根
+  '√': {
+    Priority: 18, Type: "op", Arity: 1, Associative_law: "L",
+    fn: (L: number) => { return Math.sqrt(L); }
   },
   //+符合の代替
   '#': {
@@ -91,50 +97,50 @@ const operateTable: OperateKeyType = {
     Priority: 15, Type: "op", Arity: 1, Associative_law: "R",
     fn: (L: number) => { return -L; }
   },
-  //ビット反転
-  '~': {
-    Priority: 15, Type: "op", Arity: 1, Associative_law: "R",
-    fn: (L: number) => { return ~L; }
-  },
-  //べき乗 10x
-  '10**': {
-    Priority: 14, Type: "op", Arity: 1, Associative_law: "L",
-    fn: (R: number) => { return 10 ** R; }
-  },
-  //べき乗 -()
-  '**-1': {
-    Priority: 14, Type: "op", Arity: 1, Associative_law: "L",
-    fn: (L: number) => { return L ** -1; }
-  },
   //べき乗 ^(
-  '**': {
+  '^': {
     Priority: 14, Type: "op", Arity: 2, Associative_law: "L",
     fn: (L: number, R: number) => { return L ** R; }
-  },
-  //乗算
-  '*': {
-    Priority: 13, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return L * R; }
-  },
-  //除算
-  '/': {
-    Priority: 13, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return L / R; }
   },
   //剰余
   '%': {
     Priority: 13, Type: "op", Arity: 2, Associative_law: "L",
     fn: (L: number, R: number) => { return L % R; }
   },
-  //加算
-  '+': {
-    Priority: 12, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: any, R: any) => { return L + R; }
+  //組合せ
+  'nPr': {
+    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return permutation(L, R); }
   },
-  //減算
-  '-': {
-    Priority: 12, Type: "op", Arity: 2, Associative_law: "L",
-    fn: (L: number, R: number) => { return L - R; }
+  //順列
+  'nCr': {
+    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return combinations(L, R); }
+  },
+  //極座標 
+  'pol': {
+    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return polarCoordinates(L, R); }
+  },
+  //極座標 
+  'rec': {
+    Priority: 18, Type: "op", Arity: 2, Associative_law: "L",
+    fn: (L: number, R: number) => { return cartesian(L, R); }
+  },
+  //pi
+  'π': {
+    Priority: 18, Type: "op", Arity: 0, Associative_law: "",
+    fn: () => { return Math.PI; }
+  },
+  //カンマ
+  ',': {
+    Priority: 18, Type: "op", Arity: 0, Associative_law: "L",
+    fn: (L: number, R: number) => { return; }
+  },
+  //ビット反転
+  '~': {
+    Priority: 15, Type: "op", Arity: 1, Associative_law: "R",
+    fn: (L: number) => { return ~L; }
   },
   //左ビットシプト
   '<<': {
@@ -152,7 +158,7 @@ const operateTable: OperateKeyType = {
     fn: (L: number, R: number) => { return L & R; }
   },
   //ビット単位 XOR
-  '^': {
+  '⊻': {
     Priority: 7, Type: "op", Arity: 2, Associative_law: "L",
     fn: (L: number, R: number) => { return L ^ R; }
   },
@@ -177,7 +183,7 @@ export const cosDegCV = (e: number) => {
 export const polarCoordinates = (x: number, y: number) => {
   const r = Math.sqrt(x ** 2 + y ** 2);
   const θ = Math.sign(y) * Math.acos(x / Math.sqrt((x ** 2) + (y ** 2))) * (180 / Math.PI);
-  return [r, θ];
+  return r;
   /** 直交座標 → 極座標への変換   
    r = √(x^2 + y^2)
    θ = sign(y) * acos(x / r)
@@ -187,7 +193,7 @@ export const polarCoordinates = (x: number, y: number) => {
 export const cartesian = (r: number, θ: number) => {
   const x = Math.round(r * cosDegCV(θ));
   const y = Math.round(r * Math.sin(θ * (Math.PI / 180)));
-  return [x, y];
+  return x;
   /** 極座標 → 直交座標 への変換
    x = r cos θ
    y = r sin θ
