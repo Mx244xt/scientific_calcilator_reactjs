@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Scientific Calculator with ReactJs
+  <img src="https://data-m244.s3.amazonaws.com/scientific_calcilator_reactjs/scientific_calculator_calculation.gif" alt="計算" width="49%" /> <img src="https://data-m244.s3.amazonaws.com/scientific_calcilator_reactjs/scientific_calculator_calculation_list.gif" alt="計算結果の表示" width="49%" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## サイト概要
 
-## Available Scripts
+初等関数の計算ができる関数電卓アプリです。
+計算順序をスタックで評価し逆ポーランド記法へ変換してから計算を行います。
 
-In the project directory, you can run:
+### サイト URL
 
-### `npm start`
+<https://scientific-calcilator.mx244.com/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 制作背景
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+React、TypeScript、firebase の学習のため作成。
 
-### `npm test`
+## 使用技術
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 使用言語
 
-### `npm run build`
+- TypeScript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ライブラリ
+- React
+- Tailwind CSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### インフラ
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+AWS
 
-### `npm run eject`
+- IAM
+- S3
+- Cloud Front
+- Route 53
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## インフラ構成図
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="https://data-m244.s3.amazonaws.com/Infrastructure/S3_static_hosting_configuration_diagram.jpg" alt="インフラ構成図" width="80%" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 機能
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+計算機能
+- 四則演算
+- 括弧を用いた計算
+- 計算順序の評価
 
-## Learn More
+関数
+  - 三角関数
+  - 逆三角関数
+  - 対数
+  - 自然対数
+  - 階乗
+  - ネイピア数
+  - 平方根
+  - 冪乗
+  - 剰余
+  - 組合せ
+  - 順列
+  - 円周率
+  - 極座標変換
+  - 直交座標変換
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
