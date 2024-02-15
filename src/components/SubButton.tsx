@@ -1,6 +1,6 @@
 import { ButtonProps } from '../types/button';
 
-const SubButton = ({ setState, isAlt, buttonText, displayText, calcText, bgColor, fontColor }: ButtonProps) => {
+const SubButton = ({ setState, isAlt, buttonText, displayText, calcText, bgColor, altColor, fontColor }: ButtonProps) => {
   return (
     <div>
       <div className='flex justify-center '>
@@ -8,7 +8,7 @@ const SubButton = ({ setState, isAlt, buttonText, displayText, calcText, bgColor
         <p className={`h-4 text-green-400 text-xs ${!calcText.topRightText && "opacity-50"}`} >{buttonText.topRightText}</p>
       </div>
       <button
-        className={`flex justify-center items-center w-16 h-8  ${bgColor ? bgColor : "bg-gradient-to-b from-[#E4E6F3] via-[#A8AAB5] to-[#63656F]"} rounded ${!calcText.mainText && "opacity-70"}`}
+        className={`flex justify-center items-center w-16 h-8 ${!bgColor ? "bg-gradient-to-b from-[#E4E6F3] via-[#A8AAB5] to-[#63656F]" : !isAlt && altColor && displayText.mainText === "ALT" ? altColor : bgColor} rounded ${!calcText.mainText && "opacity-70"}`}
         onClick={() => isAlt
           ? setState &&
           calcText.mainText &&

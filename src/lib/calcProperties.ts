@@ -14,7 +14,8 @@ const calcProperties = () => {
           mainText: "ALT",
           topLeftText: "ALT",
         },
-        bgColor: "bg-gradient-to-b from-[#FFFA00] via-[#C6C200] to-[#9D9A00] "
+        bgColor: "bg-gradient-to-b from-[#FFFA00] via-[#C6C200] to-[#9D9A00]",
+        altColor: "bg-gradient-to-b from-[#FB7D27] via-[#DD7F00] to-[#CC8300]",
       },
       {
         buttonText: {
