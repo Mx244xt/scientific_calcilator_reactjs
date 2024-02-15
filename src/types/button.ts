@@ -25,5 +25,6 @@ export type ButtonProps = {
   }
   fontSize?: string | undefined;
   bgColor?: string | undefined;
+  altColor?: string | undefined;
   fontColor?: string | undefined;
 }
