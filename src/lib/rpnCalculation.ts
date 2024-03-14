@@ -1,6 +1,6 @@
 import operateTable from "./operateTable";
 
-export const fnSplitOperator = (val: any, stack: any) => {
+export const fnSplitOperator = (val:any, stack: any) => {
   if (val === "") return null;
   if (operateTable[val] != null) {
     stack.push({ value: val, type: operateTable[val].Type });
@@ -17,7 +17,7 @@ export const fnSplitOperator = (val: any, stack: any) => {
     };
   };
 
-  if (!isNaN(val)) {
+  if (!isNaN(val! as number)) {
     stack.push({ value: val, type: "num" });
   } else {
     stack.push({ value: val, type: "str" });
