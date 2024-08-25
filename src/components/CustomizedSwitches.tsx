@@ -54,19 +54,20 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 export default function CustomizedSwitches() {
   const [isNight, setIsNight] = useState<boolean>(false);
   useEffect(() => {
-    let element = document.querySelector('body');
-    if (element) {
-      if (isNight) {
-        element.style.background = 'none #666';
-      } else {
-        element.style.background = `url('/static/media/descImage.7ff1db921c407c702ff4.jpeg') rgba(255, 255, 255, 0.5)`;
-      }
+    const element = document.querySelector('body')! as HTMLBodyElement;
+    const disply = document.getElementById('disp')! as HTMLElement;
+    if (isNight) {
+      element.style.background = 'none #000';
+      disply.className = "w-full h-40 p-3 bg-black text-white rounded-xl overflow-auto border border-white";
+    } else {
+      element.style.background = '';
+      disply.className = "w-full h-40 p-3 bg-lime-100 text-black rounded-xl overflow-auto";
     }
   }, [isNight])
   return (
     <FormGroup>
       <FormControlLabel
-        control={<MaterialUISwitch checked={isNight} onChange={() => setIsNight(!isNight)} />}
+        control={<MaterialUISwitch name='toggle' checked={isNight} onChange={() => setIsNight(!isNight)} />}
         label="MUI switch"
       />
     </FormGroup>

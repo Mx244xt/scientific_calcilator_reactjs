@@ -12,7 +12,7 @@ const Disply = ({ displayText }: Props) => {
     }
   }, [displayText]);
   return (
-    <div className="w-full h-40 p-3 bg-lime-100 rounded-xl overflow-auto">
+    <div id="disp" className="w-full h-40 p-3 bg-lime-100 rounded-xl overflow-auto border-2 border-white">
       {displayText.map((items, i) => {
         return (
           <div key={i} className="flex flex-wrap">
