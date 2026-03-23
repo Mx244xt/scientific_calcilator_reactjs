@@ -170,8 +170,12 @@ const operateTable: OperateKeyType = {
 };
 
 export const factorial: (e: number) => number = (e: number) => {
-  if (e === 0) return 1;
-  return e * factorial(e - 1);
+  if (!Number.isInteger(e) || e < 0) return NaN;
+  let result = 1;
+  for (let i = 2; i <= e; i++) {
+    result *= i;
+  }
+  return result;
 };
 
 export const cosDegCV = (e: number) => {
@@ -224,13 +228,18 @@ export const coth = (x: number) => {
   return 1 / tanh(x);
 };
 
+const isValidNR = (n: number, r: number): boolean =>
+  Number.isInteger(n) && Number.isInteger(r) && n >= 0 && r >= 0 && r <= n;
+
 //順列
 export const permutation = (n: number, r: number) => {
+  if (!isValidNR(n, r)) return NaN;
   return factorial(n) / factorial(n - r);
 };
 
 //組合せ
 export const combinations = (n: number, r: number) => {
+  if (!isValidNR(n, r)) return NaN;
   return permutation(n, r) / factorial(r);
 };
 
