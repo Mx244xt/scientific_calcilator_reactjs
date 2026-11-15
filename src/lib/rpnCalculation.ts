@@ -17,7 +17,7 @@ export const fnSplitOperator = (val: any, stack: any) => {
     };
   };
 
-  if (!isNaN(val)) {
+  if (!isNaN(val! as number)) {
     stack.push({ value: val, type: "num" });
   } else {
     stack.push({ value: val, type: "str" });
@@ -75,7 +75,13 @@ const rpnCalculation = (rpn: string) => {
       console.warn({ message: "calculate unfinished", rest_rpn: rpn_stack, result_value: calc_stack });
       throw new Error("calculate unfinished");
     }
-    const result: number = calc_stack[0]
+     const result: number = calc_stack[0];
+    if (result.toString() === "NaN") {
+      throw new Error("The answer is NaN.");
+    }
+    if (result.toString() === "Infinity") {
+      throw new Error("The answer is infinity");
+    }
     return Number(result.toPrecision(12));
   } catch (error) {
     console.error(error);
